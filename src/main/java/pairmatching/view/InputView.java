@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import pairmatching.validation.InputViewValidation;
 
 import static pairmatching.constant.MessageConstant.MESSAGE_INPUT_FUNCTION;
+import static pairmatching.constant.MessageConstant.MESSAGE_INPUT_REMATCH;
 
 public class InputView {
 
@@ -13,8 +14,18 @@ public class InputView {
     public String readOption() {
         System.out.println(MESSAGE_INPUT_FUNCTION);
 
-        String input = Console.readLine();
-        InputViewValidation.checkInputValid(input);
-        return input;
+        String option = Console.readLine();
+        InputViewValidation.checkInputValid(option);
+        return option;
+    }
+
+    /**
+     * 사용자가 매칭을 다시 시도할지 안할지 여부를 입력받는다.
+     */
+    public String readReMatchCommand() {
+        System.out.println(MESSAGE_INPUT_REMATCH);
+        String reMatchCommand = Console.readLine();
+//        InputViewValidation.checkReMatchCommandValid(reMatchCommand);
+        return reMatchCommand;
     }
 }
