@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static pairmatching.constant.ErrorConstant.ERROR_FILE_READ;
 import static pairmatching.constant.MessageConstant.BACKEND_CREW_INFO;
@@ -20,14 +21,19 @@ public class Crew {
     private Course course;
     private String name;
 
-    private static Map<Course, String> crewNames;
+    private static Map<Course, List<String>> crewNames;
 
     public Crew() {
         crewNames = new HashMap<>();
         init();
     }
-
     private void init() {
+        Course.getList().stream()
+                .forEach(course -> crewNames.put(course, new ArrayList<>()));
+        readCrew();
+    }
+
+    private void readCrew() {
         try {
             readBackend();
             readFrontEnd();
@@ -42,7 +48,7 @@ public class Crew {
         );
         String crewName;
         while ((crewName = reader.readLine()) != null) {
-            crewNames.put(Course.BACKEND,crewName);
+            crewNames.get(Course.BACKEND).add(crewName);
         }
         reader.close();
     }
@@ -53,8 +59,12 @@ public class Crew {
         );
         String crewName;
         while ((crewName = reader.readLine()) != null) {
-            crewNames.put(Course.FRONTEND,crewName);
+            crewNames.get(Course.FRONTEND).add(crewName);
         }
         reader.close();
+    }
+
+    public List<String> getCrew(Course course) {
+        return crewNames.get(course);
     }
 }

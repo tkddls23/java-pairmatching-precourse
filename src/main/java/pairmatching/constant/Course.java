@@ -19,9 +19,8 @@ public enum Course {
     public String getName() {
         return name;
     }
-    public static List<String> getList() {
+    public static List<Course> getList() {
         return Arrays.stream(Course.values())
-                .map(Course::getName)
                 .sequential()
                 .collect(Collectors.toList());
     }
