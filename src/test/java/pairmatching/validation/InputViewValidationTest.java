@@ -14,7 +14,7 @@ class InputViewValidationTest {
     @ValueSource(strings = {"10h","h","4", "", " "})
     void checkNotValidDigitInputValidation(String input) {
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> InputViewValidation.checkInputValid(input))
+                .isThrownBy(() -> InputViewValidation.checkOptionValid(input))
                 .withMessageStartingWith(ERROR_NOT_VALID_INPUT);
     }
 }

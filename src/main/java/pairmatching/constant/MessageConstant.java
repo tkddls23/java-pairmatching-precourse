@@ -2,6 +2,10 @@ package pairmatching.constant;
 
 public class MessageConstant {
 
+    public static final String MESSAGE_YES = "네";
+    public static final String MESSAGE_NO = "아니오";
+
+
     public static final String MESSAGE_INPUT_FUNCTION = "기능을 선택하세요.\n" +
             "1. 페어 매칭\n" +
             "2. 페어 조회\n" +

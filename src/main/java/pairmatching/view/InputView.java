@@ -15,7 +15,7 @@ public class InputView {
         System.out.println(MESSAGE_INPUT_FUNCTION);
 
         String option = Console.readLine();
-        InputViewValidation.checkInputValid(option);
+        InputViewValidation.checkOptionValid(option);
         return option;
     }
 
@@ -25,7 +25,7 @@ public class InputView {
     public String readReMatchCommand() {
         System.out.println(MESSAGE_INPUT_REMATCH);
         String reMatchCommand = Console.readLine();
-//        InputViewValidation.checkReMatchCommandValid(reMatchCommand);
+        InputViewValidation.checkReMatchCommandValid(reMatchCommand);
         return reMatchCommand;
     }
 }
