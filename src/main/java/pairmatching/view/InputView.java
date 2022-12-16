@@ -23,9 +23,9 @@ public class InputView {
      */
     public String readMatchingInfo() {
         System.out.println(MESSAGE_INPUT_INFO);
-        String matchingInfo = Console.readLine();
-//        InputViewValidation.checkMatchingInfoValid(matchingInfo);
-        return matchingInfo;
+        String matchingInput = Console.readLine();
+        InputViewValidation.checkMatchingInputValid(matchingInput);
+        return matchingInput;
     }
 
     /**
