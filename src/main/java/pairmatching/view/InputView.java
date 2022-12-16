@@ -1,6 +1,7 @@
 package pairmatching.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import pairmatching.validation.InputViewValidation;
 
 import static pairmatching.constant.MessageConstant.MESSAGE_INPUT_FUNCTION;
 
@@ -13,7 +14,7 @@ public class InputView {
         System.out.println(MESSAGE_INPUT_FUNCTION);
 
         String input = Console.readLine();
-
+        InputViewValidation.checkInputValid(input);
         return input;
     }
 }
