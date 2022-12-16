@@ -10,6 +10,7 @@ public class ErrorConstant {
     public static final String ERROR_NOT_VALID_LEVEL = "[ERROR] 레벨 값을 제대로 입력해주세요.";
     public static final String ERROR_NOT_VALID_MISSION = "[ERROR] 미션 값을 제대로 입력해주세요.";
     public static final String ERROR_NON_BLANK = "[ERROR] 예시에 맞게 입력해주세요. 띄어쓰기가 빠졌습니다.";
+    public static final String ERROR_FILE_READ = "[ERROR] 파일을 읽기에서 오류가 발생했습니다. ";
 
 
 }

@@ -6,6 +6,10 @@ public class MessageConstant {
     public static final String MESSAGE_NO = "아니오";
     public static final char BLANK = ' ';
 
+    public static final String BACKEND_CREW_INFO = "src/main/resources/backend-crew.md";
+    public static final String FRONTEND_CREW_INFO = "src/main/resources/frontend-crew.md";
+
+
 
     public static final String MESSAGE_INPUT_FUNCTION = "기능을 선택하세요.\n" +
             "1. 페어 매칭\n" +
