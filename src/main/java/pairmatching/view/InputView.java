@@ -3,6 +3,8 @@ package pairmatching.view;
 import camp.nextstep.edu.missionutils.Console;
 import pairmatching.validation.InputViewValidation;
 
+import java.util.List;
+
 import static pairmatching.constant.MessageConstant.*;
 
 public class InputView {
@@ -21,11 +23,10 @@ public class InputView {
     /**
      * 과정,레벨,미션을 입력받는다.
      */
-    public String readMatchingInfo() {
+    public List<String> readMatchingInfo() {
         System.out.println(MESSAGE_INPUT_INFO);
         String matchingInput = Console.readLine();
-        InputViewValidation.checkMatchingInputValid(matchingInput);
-        return matchingInput;
+        return InputViewValidation.checkMatchingInputValid(matchingInput);
     }
 
     /**

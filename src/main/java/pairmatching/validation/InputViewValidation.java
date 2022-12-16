@@ -2,8 +2,12 @@ package pairmatching.validation;
 
 import pairmatching.constant.Course;
 import pairmatching.constant.Level;
+import pairmatching.constant.Mission;
 import pairmatching.domain.Missions;
 import pairmatching.constant.Pair;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static pairmatching.constant.ErrorConstant.*;
 import static pairmatching.constant.MessageConstant.*;
@@ -22,10 +26,10 @@ public class InputViewValidation {
         }
     }
 
-    public static void checkMatchingInputValid(String matchingInput) {
+    public static List<String> checkMatchingInputValid(String matchingInput) {
         String[] matchingInfo = matchingInput.split(",");
         checkMatchingInfoCount(matchingInfo);
-        checkEachMatchingInfo(matchingInfo);
+        return checkEachMatchingInfo(matchingInfo);
     }
 
     private static void checkMatchingInfoCount(String[] matchingInfo) {
@@ -34,28 +38,33 @@ public class InputViewValidation {
         }
     }
 
-    private static void checkEachMatchingInfo(String[] matchingInfo) {
-        checkCourseInfo(matchingInfo[0]);
-        checkLevelInfo(matchingInfo[1]);
-        checkMissionInfo(matchingInfo[1], matchingInfo[2]);
+    private static List<String> checkEachMatchingInfo(String[] matchingInfo) {
+        String course = checkCourseInfo(matchingInfo[0]);
+        String level = checkLevelInfo(matchingInfo[1]);
+        String mission = checkMissionInfo(matchingInfo[1], matchingInfo[2]);
+        return Arrays.asList(course, level, mission);
     }
-    private static void checkCourseInfo(String courseInfo) {
+    private static String checkCourseInfo(String courseInfo) {
         if (!Course.isExist(courseInfo)) {
             throw new IllegalArgumentException(ERROR_NOT_VALID_COURSE);
         }
+        return courseInfo;
     }
-    private static void checkLevelInfo(String levelInfo) {
+    private static String checkLevelInfo(String levelInfo) {
         checkFrontBlank(levelInfo.charAt(0));
-        if (!Level.isExist(levelInfo.substring(1))) {
+        String levelValue = levelInfo.substring(1);
+        if (!Level.isExist(levelValue)) {
             throw new IllegalArgumentException(ERROR_NOT_VALID_LEVEL);
         }
+        return levelValue;
     }
-    private static void checkMissionInfo(String levelInfo, String missionInfo) {
+    private static String checkMissionInfo(String levelInfo, String missionInfo) {
         checkFrontBlank(missionInfo.charAt(0));
         Missions missions = new Missions();
         if (!missions.isExist(levelInfo.substring(1), missionInfo.substring(1))) {
             throw new IllegalArgumentException(ERROR_NOT_VALID_MISSION);
         }
+        return missionInfo.substring(1);
     }
 
     private static void checkFrontBlank(char infoValue) {
