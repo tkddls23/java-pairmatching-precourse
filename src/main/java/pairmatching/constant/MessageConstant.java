@@ -11,7 +11,12 @@ public class MessageConstant {
             "2. 페어 조회\n" +
             "3. 페어 초기화\n" +
             "Q. 종료";
-    public static final String MESSAGE_INPUT_MATCH = "#############################################\n" +
+    public static final String MESSAGE_INPUT_INFO = "과정, 레벨, 미션을 선택하세요.\n" +
+            "ex) 백엔드, 레벨1, 자동차경주";
+    public static final String MESSAGE_INPUT_REMATCH = "매칭 정보가 있습니다. 다시 매칭하시겠습니까?\n" +
+            "네 | 아니오";
+
+    public static final String MESSAGE_OUTPUT_MATCH = "#############################################\n" +
             "과정: 백엔드 | 프론트엔드\n" +
             "미션:\n" +
             "  - 레벨1: 자동차경주 | 로또 | 숫자야구게임\n" +
@@ -20,13 +25,6 @@ public class MessageConstant {
             "  - 레벨4: 성능개선 | 배포\n" +
             "  - 레벨5: \n" +
             "############################################";
-    public static final String MESSAGE_INPUT_INFO = "과정, 레벨, 미션을 선택하세요.\n" +
-            "ex) 백엔드, 레벨1, 자동차경주";
-    public static final String MESSAGE_INPUT_REMATCH = "매칭 정보가 있습니다. 다시 매칭하시겠습니까?\n" +
-            "네 | 아니오";
-
-
-
     public static final String MESSAGE_OUTPUT_RESULT = "\n페어 매칭 결과입니다.";
     public static final String MESSAGE_OUTPUT_INIT = "초기화 되었습니다.";
 
