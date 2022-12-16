@@ -26,4 +26,13 @@ class InputViewValidationTest {
                 .isThrownBy(() -> InputViewValidation.checkReMatchCommandValid(input))
                 .withMessageStartingWith(ERROR_NOT_VALID_INPUT);
     }
+
+    @DisplayName("예외 처리 : 매칭 정보 입력값이 올바르지 않을때 에러 발생 검증")
+    @ParameterizedTest
+    @ValueSource(strings = {"백엔드, 레벨1, 자동차경주 ","백엔드, 레벨1","", " ", "프론트, 레벨3, 자동차경주"})
+    void checkMatchingInfoValidation(String input) {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> InputViewValidation.checkMatchingInputValid(input));
+    }
+
 }

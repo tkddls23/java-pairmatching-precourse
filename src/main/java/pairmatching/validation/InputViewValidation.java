@@ -53,7 +53,7 @@ public class InputViewValidation {
     private static void checkMissionInfo(String levelInfo, String missionInfo) {
         checkFrontBlank(missionInfo.charAt(0));
         Missions missions = new Missions();
-        if (missions.isExist(levelInfo.substring(1), missionInfo.substring(1))) {
+        if (!missions.isExist(levelInfo.substring(1), missionInfo.substring(1))) {
             throw new IllegalArgumentException(ERROR_NOT_VALID_MISSION);
         }
     }

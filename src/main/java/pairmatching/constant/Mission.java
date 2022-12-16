@@ -1,7 +1,10 @@
 package pairmatching.constant;
 
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static pairmatching.constant.ErrorConstant.ERROR_NOT_VALID_MISSION;
 
 public enum Mission {
     CAR_RACE("자동차경주"),
@@ -24,9 +27,13 @@ public enum Mission {
     }
 
     public static Mission getEnumMission(String name) {
-        return Arrays.stream(Mission.values())
-                .filter(mission -> mission.getName().equals(name))
-                .collect(Collectors.toList()).get(0);
+        Optional<Mission> result = Arrays.stream(Mission.values())
+                .filter(mission -> mission.getName().equals(name)).findFirst();
+
+        if (result.isPresent()) {
+            return result.get();
+        }
+        throw new IllegalArgumentException(ERROR_NOT_VALID_MISSION);
     }
 
 }
